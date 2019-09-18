@@ -8,7 +8,10 @@ function App() {
 
   const [home, homeScore] = useState(0);
   const [visitor, visitorScore] = useState(0);
+  // Stretch 
   
+  const [team, teamName] = useState(0);
+   
   return (
     <div className="container">
       <section className="scoreboard">
@@ -39,6 +42,8 @@ function App() {
             homeScore(home + 3);
           }}>Home Field Goal</button>
         </div>
+
+
 
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick = {() => {
