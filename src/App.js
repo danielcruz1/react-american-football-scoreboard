@@ -1,5 +1,5 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
@@ -9,9 +9,18 @@ function App() {
   const [home, homeScore] = useState(0);
   const [visitor, visitorScore] = useState(0);
   // Stretch 
-  
-  const [team, teamName] = useState(0);
-   
+  const [timer, setTimer] = useState(60);
+
+  useEffect(() => {
+    const clock = setTimeout(() => {
+      if (timer > 0) {
+        setTimer(timer - 1)
+      } else {
+        clearTimeout(clock)
+      }
+    }, 1000)
+  },)
+
   return (
     <div className="container">
       <section className="scoreboard">
@@ -23,7 +32,7 @@ function App() {
 
             <div className="home__score">{home}</div>
           </div>
-          <div className="timer">00:03</div>
+          <div className="timer">00:{timer}</div>
           <div className="away">
             <h2 className="away__name">49ERS</h2>
             <div className="away__score">{visitor}</div>
